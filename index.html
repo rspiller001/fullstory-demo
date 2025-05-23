@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo de Navegação com FullStory</title>
+  <style>
+    body { font-family: Arial; padding: 40px; }
+    .logo { font-size: 24px; color: blue; cursor: pointer; }
+    .menu a { margin-right: 20px; color: darkblue; text-decoration: underline; cursor: pointer; }
+    .disabled-button { background-color: gray; color: white; padding: 10px; border: none; cursor: not-allowed; }
+    .clickbait { color: red; text-decoration: underline; cursor: pointer; }
+    form { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="logo" onclick="alert('Nada acontece...')">MinhaLogo (clique aqui)</div>
+  <div class="menu">
+    <a href="#">Página Inicial</a>
+    <a href="404.html">Pedidos</a>
+    <a href="#">Contatos</a>
+  </div>
+
+  <p class="clickbait">Clique aqui para ver algo incrível!</p>
+
+  <button class="disabled-button" onclick="alert('Botão desabilitado')">Ação indisponível</button>
+
+  <form onsubmit="loginSimulado(event)">
+    <h3>Login</h3>
+    <input type="text" placeholder="Usuário" id="usuario" required /><br><br>
+    <input type="password" placeholder="Senha" id="senha" required /><br><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script>
+    function loginSimulado(e) {
+      e.preventDefault();
+      const user = document.getElementById('usuario').value;
+      const pass = document.getElementById('senha').value;
+      if (user !== "cliente" || pass !== "1234") {
+        alert("Erro: Usuário ou senha inválidos.");
+      } else {
+        alert("Login bem-sucedido!");
+      }
+    }
+  </script>
+
+  <!-- Inserir o script do FullStory aqui -->
+</body>
+</html>
